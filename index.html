@@ -98,6 +98,67 @@
             font-size: 14px;
             color: #666;
         }
+
+    
+    
+    
+    
+            .notification-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+        }
+
+        .notification-wrapper {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .notification {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            padding-right: 15px;
+            min-width: 260px;
+            animation: fadeInOut 5s ease-in-out;
+            opacity: 0;
+            position: relative;
+        }
+
+        .now {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background: red;
+            color: white;
+            font-size: 12px;
+            padding: 3px 7px;
+            border-radius: 5px;
+        }
+
+        .notification img {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(10px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-10px); }
+        }
+
+    
+    
+
+      
     </style>
 <meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
 <meta name='google-adsense-platform-domain' content='blogspot.com'/>
@@ -203,5 +264,48 @@
   });
 </script>
 
+  
+  
+  <div class="notification-container" id="notifications"></div>
+
+<script>
+    const names = ["نبيل", "اسماء", "حميد", "خالد", "ايمن", "احمد", "محمد", "احلام", "عصام"];
+    const prizes = ["150$", "سيارة", "منزل"];
+    const imageLinks = {
+        "150$": "https://i.postimg.cc/fLmF3rzL/IMG-1745.png", 
+        "سيارة": "https://i.postimg.cc/qvv9mwLb/IMG-1748.png",
+        "منزل": "https://i.postimg.cc/fb31sb1Y/IMG-1747.webp"
+    };
+
+    function showNotification() {
+        const name = names[Math.floor(Math.random() * names.length)];
+        const prize = prizes[Math.floor(Math.random() * prizes.length)];
+        const imgSrc = imageLinks[prize];
+
+        const notificationWrapper = document.createElement("div");
+        notificationWrapper.className = "notification-wrapper";
+
+        const notification = document.createElement("div");
+        notification.className = "notification";
+        notification.innerHTML = `
+            <span>مبروك لـ ${name} فاز بـ ${prize}</span>
+            <img src="${imgSrc}" alt="جائزة">
+        `;
+
+        const nowTag = document.createElement("div");
+        nowTag.className = "now";
+        nowTag.textContent = "الآن";
+
+        notificationWrapper.appendChild(nowTag);
+        notificationWrapper.appendChild(notification);
+        document.getElementById("notifications").appendChild(notificationWrapper);
+
+        setTimeout(() => {
+            notificationWrapper.remove();
+        }, 5000);
+    }
+
+    setInterval(showNotification, 3000);
+</script>
 </body>
 </html>
