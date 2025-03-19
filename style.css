@@ -1,0 +1,84 @@
+  body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        /* حاوية المحتوى الرئيسية */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* صورة البروفايل */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* رمز التحقق الأزرق */
+        .verified-badge {
+            display: inline-block;
+            background-color: #1da1f2;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            margin-left: 5px;
+        }
+
+        /* صندوق تأطير العناصر */
+        .box {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 15px 0;
+        }
+
+        /* الصور داخل الصناديق */
+        .image-placeholder, .gif-placeholder {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* زر التسجيل */
+        .register-btn {
+            display: block;
+            background-color: #00b140;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            text-align: center;
+            width: center;
+        }
+
+        .register-btn:hover {
+            background-color: #008c34;
+        }
+
+        /* حقوق النشر */
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
